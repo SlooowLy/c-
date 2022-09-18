@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 00:45:46 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/13 16:19:50 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:55:19 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void ) {
     Point a(0, 0);
     Point b(3, 3);
     Point c(3, -3);
-    Point point(1, 0);
+    Point point(0, 1);
     
     std::cout << bsp(a, b, c, point) << "------------" << std::endl;
     return 0;

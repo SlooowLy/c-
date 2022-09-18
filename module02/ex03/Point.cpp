@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 05:42:46 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/18 13:26:55 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:54:59 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ Point::Point()
 	std::cout << "Default constructor called\n";
 }
 
-Point::Point(const Point& copy)
+Point::Point(const Point& copy) : x(copy.x), y(copy.y)
 {
 	std::cout << "Copy constractor called\n";
-	*this = copy;
 }
 
 Point& Point::operator= (const Point& copy)

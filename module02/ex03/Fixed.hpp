@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 23:29:05 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/18 13:23:35 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:40:27 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Fixed
 		Fixed&	operator-- (); //Prefix decrement operator
 		Fixed	operator-- (int dec);
 		Fixed	operator+ (Fixed ARG);
+		Fixed	operator- (Fixed ARG);
 		Fixed	operator* (Fixed ARG);
 		Fixed	operator/ (Fixed ARG);
 		bool	operator> (Fixed ARG);

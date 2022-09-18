@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 00:45:25 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/18 13:25:05 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:39:18 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,16 @@ Fixed	Fixed::operator++ (int inc)
 		fixed_point += inc;
 	else
 		fixed_point++;
+	return tmp;
+}
+
+Fixed	Fixed::operator-- (int inc)
+{
+	Fixed tmp = *this;
+	if (inc)
+		fixed_point -= inc;
+	else
+		fixed_point--;
 	return tmp;
 }
 

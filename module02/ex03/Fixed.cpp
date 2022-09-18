@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 00:45:25 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/18 13:26:01 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:39:43 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ float Fixed::toFloat( void ) const
 std::ostream& operator<<(std::ostream& os, const Fixed &P)
 {
 	os << P.toFloat();
-    // os << fixed_point << '/' << "oy" << '/' << "toy";
     return os;
 }
 
@@ -99,13 +98,6 @@ Fixed	Fixed::operator++ (int inc)
 	return tmp;
 }
 
-Fixed	Fixed::operator+ (Fixed ARG)
-{
-	Fixed	tmp(ARG.toFloat() + toFloat());
-
-	return tmp;
-}
-
 Fixed	Fixed::operator-- (int inc)
 {
 	Fixed tmp = *this;
@@ -114,6 +106,18 @@ Fixed	Fixed::operator-- (int inc)
 	else
 		fixed_point--;
 	return tmp;
+}
+
+Fixed	Fixed::operator+ (Fixed ARG)
+{
+	fixed_point += ARG.getRawBits();
+	return *this;
+}
+
+Fixed	Fixed::operator- (Fixed ARG)
+{
+	fixed_point -= ARG.getRawBits();
+	return *this;
 }
 
 Fixed	Fixed::operator* (Fixed ARG)
