@@ -6,18 +6,18 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:39:08 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/18 14:59:37 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:57:29 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 
 const char *throw_over_low::what () const _NOEXCEPT {
-	return "The grade you chosed for this Bureaucrat is too low for him\n";
+	return "The grade you chosed is too low\n";
 }
 
 const char *throw_over_high::what () const _NOEXCEPT {
-	return "The grade you chosed for this Bureaucrat is too high for him\n";
+	return "The grade you chosed is too high\n";
 }
 
 void	Bureaucrat::grade_decrement()

@@ -6,20 +6,17 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:39:41 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/18 14:53:28 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:57:41 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Bureaucrat.hpp"
+# include "Form.hpp"
 
 int main()
 {
 	try {
-		Bureaucrat a("Tsuki", 150);
-		a.grade_increment();
-		std::cout << a.getGrade() << std::endl;
-		std::cout << a.getName() << std::endl;
-		std::cout << a << std::endl;
+		Form test("chahadat l7ayat", 150, 0);
+		std::cout << test;
 	}
 	catch(std::exception& e)
 	{

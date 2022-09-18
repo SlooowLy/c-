@@ -6,7 +6,7 @@
 #    By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 16:09:20 by aaitoual          #+#    #+#              #
-#    Updated: 2022/09/17 18:44:00 by aaitoual         ###   ########.fr        #
+#    Updated: 2022/09/18 19:35:55 by aaitoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =  main.cpp Bureaucrat.cpp\
+SRC =  main.cpp Bureaucrat.cpp Form.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
-%.o : %.cpp	Bureaucrat.hpp
+%.o : %.cpp	Bureaucrat.hpp Form.hpp
 	@$(CC) $(CFLAGS) -o $@  -c $<
 all : $(NAME)
 
