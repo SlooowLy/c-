@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 18:51:14 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/16 19:09:50 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:32:24 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Brain::Brain()
 {
     std::cout << "Default constructor callled for Brain class\n";
-    ideas = new std::string[10];
+    ideas = new std::string[100];
     if (!ideas)
         std::cout << "Couldnt allocate memory for ideas in brain class\n";
 }

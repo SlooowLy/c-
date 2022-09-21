@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:39:31 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/16 19:10:17 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:31:42 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "Brain.hpp"
 
 
-int main(void)
+int leaks_check(void)
 {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -27,8 +27,8 @@ int main(void)
 	return 0;
 }
 
-// int main()
-// {
-// 	leaks_check();
-// 	system("leaks Animal");
-// }
+int main()
+{
+	leaks_check();
+	system("leaks Animal");
+}

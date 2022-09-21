@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:07:22 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 15:43:12 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:01:18 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ class Form {
 		Form(std::string, int, int); //name, grade_req_signe, grade_req_execute
 		Form(const Form&);
 		Form& operator = (const Form&);
-		std::string getName() const;
-		bool		getSigne() const;
-		int			getGrade_req_signe() const;
-		int			getGrade_req_execute() const;
-		void		beSigned(Bureaucrat*);
+		virtual std::string getName() const;
+		virtual bool		getSigne() const;
+		virtual int			getGrade_req_signe() const;
+		virtual int			getGrade_req_execute() const;
+		virtual void		beSigned(Bureaucrat*);
+		virtual	void		setSigne(bool);
 		~Form(void);
 		class GradeTooLowException : public std::exception {
 			virtual const char * what () const throw();
@@ -49,6 +50,13 @@ class Form {
 		class GradeTooHighException : public std::exception {
 			virtual const char * what () const throw();
 		};
+		class Bureaucrat_grade_low : public std::exception {
+			virtual const char * what () const throw();
+		};
+		class Form_not_signed : public std::exception {
+			virtual const char * what () const throw();
+		};
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator << (std::ostream &os, const Form& arg);

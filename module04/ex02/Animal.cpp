@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:33:41 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/17 18:07:43 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:45:09 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,3 @@ std::string    Animal::getType(void) const
 {
 	return type;
 }
-
-// void	Animal::makeSound(void) = 0 const; 

@@ -6,7 +6,7 @@
 #    By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 16:09:20 by aaitoual          #+#    #+#              #
-#    Updated: 2022/09/19 20:04:28 by aaitoual         ###   ########.fr        #
+#    Updated: 2022/09/20 16:24:10 by aaitoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =  main.cpp Form.cpp Bureaucrat.cpp\
+SRC =  main.cpp Form.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
-%.o : %.cpp Form.hpp Bureaucrat.hpp
+%.o : %.cpp Form.hpp Bureaucrat.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 	@$(CC) $(CFLAGS) -o $@  -c $<
 all : $(NAME)
 

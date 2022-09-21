@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:57 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/18 14:48:58 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/20 15:44:26 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Bureaucrat {
 	throw_over_low		GradeTooLowException;
 	throw_over_high		GradeTooHighException;
 	public:
+		Bureaucrat();
 		Bureaucrat(std::string, int);
 		~Bureaucrat();
 		std::string getName() const;

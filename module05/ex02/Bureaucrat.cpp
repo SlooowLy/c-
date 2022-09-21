@@ -6,31 +6,24 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:39:08 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 15:44:16 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:16:21 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 
-const char *throw_over_low::what () const _NOEXCEPT {
-	return "The grade you chosed for this Bureaucrat is too low for him\n";
-}
-
-const char *throw_over_high::what () const _NOEXCEPT {
-	return "The grade you chosed for this Bureaucrat is too high for him\n";
-}
 
 void	Bureaucrat::grade_decrement()
 {
 	if (grade == 150)
-		throw GradeTooLowException;
+		throw GradeTooLowException();
 	grade++;
 }
 
 void	Bureaucrat::grade_increment()
 {
 	if (grade == 1)
-		throw GradeTooHighException;
+		throw GradeTooHighException();
 	grade--;
 }
 
@@ -53,11 +46,11 @@ Bureaucrat::Bureaucrat() : name("undefined")
 
 Bureaucrat::Bureaucrat(std::string name_, int grade_) : name(name_)
 {
-	std::cout << "Default constructor called for Bureaucrat class\n";
+	std::cout << "Constructor called for Bureaucrat class\n";
 	if (grade_ < 1)
-		throw Bureaucrat::GradeTooHighException;
+		throw Bureaucrat::GradeTooHighException();
 	if (grade_ > 150)
-		throw Bureaucrat::GradeTooLowException;
+		throw Bureaucrat::GradeTooLowException();
 	grade = grade_;
 }
 
@@ -74,4 +67,35 @@ std::ostream& operator << (std::ostream &os, const Bureaucrat& arg)
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Destructor called for Bureacrat class\n";
+}
+
+void	Bureaucrat::signForm(Form *form)
+{
+	if (form->getSigne())
+		std::cout << "This form is aready signed!\n";
+	else if (grade > form->getGrade_req_signe())
+		std::cout << name << " couldn't signe " << form->getName() << " because his grade " << grade << " is lower than what this form need to be signed\n";
+	else {
+		std::cout << name << " signed " << form->getName() << std::endl;
+		if (form->getSigne())
+			std::cout << "This form is already signed!\n";
+		else if (grade <= form->getGrade_req_signe())
+		{
+			std::cout << "The Form " << form->getName() << " was signed by the bereaucrat " << name << "!\n";
+			form->setSigne(true);
+		}
+		else
+		{
+			std::cout << "The Form " << form->getName() << " can't be signed by the bereaucrat " << name << "!\n";
+			throw Form::GradeTooLowException();
+		}
+	}
+}
+
+const char *Bureaucrat::GradeTooLowException::what () const _NOEXCEPT {
+	return "The grade you chosed is too low\n";
+}
+
+const char *Bureaucrat::GradeTooHighException::what () const _NOEXCEPT {
+	return "The grade you chosed is too high\n";
 }

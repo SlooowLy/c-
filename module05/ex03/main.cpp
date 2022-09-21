@@ -5,24 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 13:39:31 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/21 16:20:44 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/09/17 18:39:41 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/09/20 20:15:55 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Dog.hpp"
-# include "Cat.hpp"
-# include "WrongAnimal.hpp"
-# include "WrongCat.hpp"
-# include "Brain.hpp"
+# include "Form.hpp"
+# include "Bureaucrat.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
 
-
-int main(void)
+int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
-	system("leaks Animal");
-	return 0;
+	try {
+		Bureaucrat tsuki("tsuki", 1);
+		RobotomyRequestForm test("tsuki");
+		tsuki.signForm(&test);
+		test.execute(tsuki);
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what();
+	}
 }

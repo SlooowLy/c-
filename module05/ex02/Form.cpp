@@ -6,13 +6,14 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:35:33 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 15:43:04 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:16:33 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Form.hpp"
 
 //Default formula for the class***************************************
+
 
 Form::Form() : name("undefined"), grade_req_execute(150)
 {
@@ -101,12 +102,12 @@ void	Form::beSigned(Bureaucrat *beru)
 		std::cout << "This form is already signed!\n";
 	else if (beru->getGrade() <= grade_req_signe)
 	{
-		std::cout << "The Form " << name << " was signed by the bereaucrat " << beru->getName() << " !\n";
+		std::cout << "The Form " << name << " was signed by the bereaucrat " << beru->getName() << "!\n";
 		signed_ = 1;
 	}
 	else
 	{
-		std::cout << "The Form " << name << " can't be signed by the bereaucrat " << beru->getName() << " !\n";
+		std::cout << "The Form " << name << " can't be signed by the bereaucrat " << beru->getName() << "!\n";
 		throw Form::GradeTooLowException();
 	}	
 }
@@ -117,4 +118,17 @@ const char *Form::GradeTooLowException::what () const _NOEXCEPT {
 
 const char *Form::GradeTooHighException::what () const _NOEXCEPT {
 	return "The grade you chosed is too high\n";
+}
+
+const char *Form::Bureaucrat_grade_low::what () const _NOEXCEPT {
+	return "This bureaucrat can't execute this form because his grade is lower what the form need\n";
+}
+
+const char *Form::Form_not_signed::what () const _NOEXCEPT {
+	return "This Form is not signed yet, you need to signe it before the executing\n";
+}
+
+void	Form::setSigne(bool i)
+{
+	signed_ = i;
 }
