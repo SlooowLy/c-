@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 14:24:28 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/23 18:51:28 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/09/25 20:26:01 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/09/25 22:28:20 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+# include "Data.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+uintptr_t serialize(Data* ptr) {
+	return reinterpret_cast<uintptr_t> (ptr);	
+}
 
-class Dog : public Animal{
-	Brain *brain;
-	public :
-		Dog();
-		Dog(const Dog&);
-		Dog& operator = (const Dog&);
-		~Dog();
-		void	makeSound(void) const;
-		void	edit_brain(std::string, int);
-		Brain*	get_brain();
-		void	set_brain(Brain*);
-};
+Data* deserialize(uintptr_t raw) {
+	return reinterpret_cast<Data*> (raw);
+}
 
-#endif
+int main() {
+	Data		*test = new Data;
+	Data		*test2;
+	uintptr_t	raw;
+
+	test->i = 10;
+	std::cout << test->i << std::endl;
+	raw = serialize(test);
+	test2 = deserialize(raw);
+}

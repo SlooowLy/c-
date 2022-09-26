@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 14:24:28 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/23 18:51:28 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/09/26 08:40:18 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/09/26 12:12:22 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+# include "Array.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+int main() {
+    Array<int> test(10);
 
-class Dog : public Animal{
-	Brain *brain;
-	public :
-		Dog();
-		Dog(const Dog&);
-		Dog& operator = (const Dog&);
-		~Dog();
-		void	makeSound(void) const;
-		void	edit_brain(std::string, int);
-		Brain*	get_brain();
-		void	set_brain(Brain*);
-};
-
-#endif
+    try {
+        std::cout << test[10] << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what();
+    }
+}

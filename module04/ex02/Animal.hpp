@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:28:41 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/17 16:14:03 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/26 23:43:25 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 
 # include <iostream>
 # include <string>
+# include "Brain.hpp"
+
+class Brain;
 
 class Animal {
 	protected :
+		Brain *brain;
 		std::string type;
 	public :
 		Animal ();
@@ -27,6 +31,9 @@ class Animal {
 		void	setType (std::string);
 		std::string	getType (void) const;
 		virtual void	makeSound(void) const = 0;
+		virtual	void set_brain(Brain*);
+		virtual	Brain *get_brain(void);
+		virtual	void	edit_brain(std::string, int);
 };
 
 #endif

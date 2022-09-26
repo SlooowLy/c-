@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:24:28 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/17 16:14:53 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:51:28 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class Dog : public Animal{
 		Dog& operator = (const Dog&);
 		~Dog();
 		void	makeSound(void) const;
+		void	edit_brain(std::string, int);
+		Brain*	get_brain();
+		void	set_brain(Brain*);
 };
 
 #endif

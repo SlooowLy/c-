@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:07:22 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:01:18 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/21 20:26:00 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Form {
 		virtual int			getGrade_req_execute() const;
 		virtual void		beSigned(Bureaucrat*);
 		virtual	void		setSigne(bool);
-		~Form(void);
+		virtual ~Form(void);
 		class GradeTooLowException : public std::exception {
 			virtual const char * what () const throw();
 		};
@@ -54,6 +54,9 @@ class Form {
 			virtual const char * what () const throw();
 		};
 		class Form_not_signed : public std::exception {
+			virtual const char * what () const throw();
+		};
+		class Form_not_found : public std::exception {
 			virtual const char * what () const throw();
 		};
 		virtual void		execute(Bureaucrat const & executor) const = 0;

@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 14:24:28 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/23 18:51:28 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/09/26 01:55:04 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/09/26 02:11:37 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
 
-class Dog : public Animal{
-	Brain *brain;
-	public :
-		Dog();
-		Dog(const Dog&);
-		Dog& operator = (const Dog&);
-		~Dog();
-		void	makeSound(void) const;
-		void	edit_brain(std::string, int);
-		Brain*	get_brain();
-		void	set_brain(Brain*);
-};
+// class Awesome;
 
-#endif
+template <typename T>
+void    swap(T &x, T &y) {
+    T tmp;
+
+    tmp = x;
+    x = y;
+    y = tmp;
+}
+
+template <typename T>
+T min(T x, T y) {
+    if (x < y)
+        return x;
+    return y;
+}
+
+template <typename T>
+T max(T x, T y) {
+    if (x > y)
+        return x;
+    return y;
+}
+
+# endif

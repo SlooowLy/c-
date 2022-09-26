@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 14:24:28 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/23 18:51:28 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/09/26 03:57:34 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/09/26 08:39:23 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include <string>
+# include <array>
+# include <array>
+# include <type_traits>
 
-class Dog : public Animal{
-	Brain *brain;
-	public :
-		Dog();
-		Dog(const Dog&);
-		Dog& operator = (const Dog&);
-		~Dog();
-		void	makeSound(void) const;
-		void	edit_brain(std::string, int);
-		Brain*	get_brain();
-		void	set_brain(Brain*);
-};
+template<typename X>
+void iter(X *arr, int size, void (*function) (X)) {
+	for (int i = 0; i < size; i++) {
+		function (arr[i]);
+	}
+	(void) arr;
+}
+
+// template<typename Y>
+void	print(char x) {
+	std::cout << x << std::endl;
+}
 
 #endif

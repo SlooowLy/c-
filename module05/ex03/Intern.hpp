@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 14:24:28 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/23 18:51:28 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/09/21 17:08:08 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/09/21 19:27:39 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "Form.hpp"
+# include <array>
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
-class Dog : public Animal{
-	Brain *brain;
-	public :
-		Dog();
-		Dog(const Dog&);
-		Dog& operator = (const Dog&);
-		~Dog();
-		void	makeSound(void) const;
-		void	edit_brain(std::string, int);
-		Brain*	get_brain();
-		void	set_brain(Brain*);
+class Intern {
+	public:
+		Form* makeForm(std::string, std::string);
 };
 
 #endif

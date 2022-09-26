@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:35:33 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:16:33 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/21 20:27:55 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,10 @@ const char *Form::Bureaucrat_grade_low::what () const _NOEXCEPT {
 
 const char *Form::Form_not_signed::what () const _NOEXCEPT {
 	return "This Form is not signed yet, you need to signe it before the executing\n";
+}
+
+const char *Form::Form_not_found::what () const _NOEXCEPT {
+	return "The form you are trying to creat doesn't exist, please try forms like {robotomy request}, {presodential pardon}, {shrubbery creation}\n";
 }
 
 void	Form::setSigne(bool i)
