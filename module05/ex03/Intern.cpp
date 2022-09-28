@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:12:32 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/28 12:01:07 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:06:53 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ Intern::Intern(const Intern& copy) {
 }
 
 Intern& Intern::operator = (const Intern& copy) {
+    (void)copy;
 	std::cout << "Copy assignement operator called for Intern class\n";
+    return *this;
 }
 
 Intern::~Intern() {
