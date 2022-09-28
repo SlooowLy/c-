@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:12:32 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/21 20:30:15 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:01:07 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,21 @@ Form* Intern::makeForm(std::string name_, std::string target)
         throw Form::Form_not_found();
     }
     return types[i];
+}
+
+Intern::Intern() {
+	std::cout << "Default constructor called for Intern class\n";
+}
+
+Intern::Intern(const Intern& copy) {
+	std::cout << "Copy constructor called for Intern class\n";
+	*this = copy;
+}
+
+Intern& Intern::operator = (const Intern& copy) {
+	std::cout << "Copy assignement operator called for Intern class\n";
+}
+
+Intern::~Intern() {
+	std::cout << "Destructor called for Intern class\n";
 }

@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:57 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 15:44:40 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:52:37 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Bureaucrat {
 		class GradeTooHighException : public std::exception {
 			virtual const char * what () const _NOEXCEPT;
 		};
+		void	executeForm(Form const & form);
 };
 
 std::ostream& operator << (std::ostream &os, const Bureaucrat& arg);

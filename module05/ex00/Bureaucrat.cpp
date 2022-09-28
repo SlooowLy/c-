@@ -6,36 +6,36 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:39:08 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 15:44:16 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:36:29 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 
-const char *throw_over_low::what () const _NOEXCEPT {
+const char *Bureaucrat::GradeTooLowException::what () const _NOEXCEPT {
 	return "The grade you chosed for this Bureaucrat is too low for him\n";
 }
 
-const char *throw_over_high::what () const _NOEXCEPT {
+const char *Bureaucrat::GradeTooHighException::what () const _NOEXCEPT {
 	return "The grade you chosed for this Bureaucrat is too high for him\n";
 }
 
 void	Bureaucrat::grade_decrement()
 {
 	if (grade == 150)
-		throw GradeTooLowException;
+		throw GradeTooLowException();
 	grade++;
 }
 
 void	Bureaucrat::grade_increment()
 {
 	if (grade == 1)
-		throw GradeTooHighException;
+		throw GradeTooHighException();
 	grade--;
 }
 
 
-std::string Bureaucrat::getName(void) const
+const std::string Bureaucrat::getName(void) const
 {
 	return name;
 }
@@ -55,9 +55,9 @@ Bureaucrat::Bureaucrat(std::string name_, int grade_) : name(name_)
 {
 	std::cout << "Default constructor called for Bureaucrat class\n";
 	if (grade_ < 1)
-		throw Bureaucrat::GradeTooHighException;
+		throw Bureaucrat::GradeTooHighException();
 	if (grade_ > 150)
-		throw Bureaucrat::GradeTooLowException;
+		throw Bureaucrat::GradeTooLowException();
 	grade = grade_;
 }
 

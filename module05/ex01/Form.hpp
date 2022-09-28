@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:07:22 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 15:43:12 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:47:56 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ class throw_over_low : public std::exception {
 	virtual const char * what () const _NOEXCEPT;
 };
 
-
-
 class Bureaucrat;
 
 class Form {
 	const std::string name;
 	bool		signed_;
-	int			grade_req_signe;
 	const int	grade_req_execute;
+	const int	grade_req_signe;
 	public :
 		Form();
 		Form(std::string, int, int); //name, grade_req_signe, grade_req_execute

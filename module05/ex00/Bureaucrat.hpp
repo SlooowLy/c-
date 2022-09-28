@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:25:57 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 15:44:26 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:36:21 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,25 @@
 # include <string>
 # include <exception>
 
-class throw_over_low : public std::exception {
-	virtual const char * what () const _NOEXCEPT;
-};
-
-class throw_over_high : public std::exception {
-	virtual const char * what () const _NOEXCEPT;
-};
 
 class Bureaucrat {
 	const std::string	name;
 	int					grade;
-	throw_over_low		GradeTooLowException;
-	throw_over_high		GradeTooHighException;
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string, int);
 		~Bureaucrat();
-		std::string getName() const;
+		const std::string getName() const;
 		int getGrade() const;
 		void	grade_increment(void);
 		void	grade_decrement(void);
+		class GradeTooLowException : public std::exception {
+			virtual const char * what () const _NOEXCEPT;
+		};
+		
+		class GradeTooHighException : public std::exception {
+			virtual const char * what () const _NOEXCEPT;
+		};
 };
 
 std::ostream& operator << (std::ostream &os, const Bureaucrat& arg);

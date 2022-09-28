@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 19:35:33 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/21 20:27:55 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:51:59 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,23 @@
 //Default formula for the class***************************************
 
 
-Form::Form() : name("undefined"), grade_req_execute(150)
+Form::Form() : name("undefined"), grade_req_execute(150), grade_req_signe(150)
 {
 	std::cout << "Default constractor called for Form class\n";
-	grade_req_signe = 150;
 	signed_ = 0;
 }
 
-Form::Form(std::string name_, int grade_req_signe_, int grade_req_execute_) : name(name_), grade_req_execute(grade_req_execute_)
+Form::Form(std::string name_, int grade_req_signe_, int grade_req_execute_) : name(name_), grade_req_execute(grade_req_execute_), grade_req_signe(grade_req_signe_)
 {
 	std::cout << "Constractor called for Form class\n";
 	if (grade_req_signe_ > 150 || grade_req_execute_ > 150)
 		throw GradeTooLowException();
 	if (grade_req_signe_ < 1 || grade_req_execute_ < 1)
 		throw GradeTooHighException();
-	grade_req_signe = grade_req_signe_;
 	signed_ = false;
 }
 
-Form::Form(const Form& copy) : name(copy.name), grade_req_execute(copy.grade_req_execute)
+Form::Form(const Form& copy) : name(copy.name), grade_req_execute(copy.grade_req_execute), grade_req_signe(copy.grade_req_signe)
 {
 	std::cout << "Copy constructor called for Form class\n";
 	*this = copy;
@@ -43,7 +41,6 @@ Form& Form::operator = (const Form& copy)
 {
 	std::cout << "Copy assinement operator called for class Form\n";
 	signed_ = copy.signed_;
-	grade_req_signe = copy.grade_req_signe;
 	return *this;
 }
 

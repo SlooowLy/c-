@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:01:17 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:05:53 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:44:44 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 # include "Bureaucrat.hpp"
 
 class ShrubberyCreationForm : public Form {
-	std::string name;
+	const std::string name;
 	std::string target;
-	int grade_to_signe;	
-	int grade_to_execute;
+	const int grade_to_execute;
+	const int grade_to_signe;	
 	bool	signe;
 	public :
 		ShrubberyCreationForm(std::string);
+		ShrubberyCreationForm(const ShrubberyCreationForm&);
+		ShrubberyCreationForm & operator = (const ShrubberyCreationForm&);
 		~ShrubberyCreationForm();
 		virtual std::string getName() const;
 		virtual bool		getSigne() const;

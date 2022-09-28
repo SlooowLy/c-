@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 17:08:08 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/21 19:27:39 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:01:05 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 
 class Intern {
 	public:
+		Intern();
+		Intern(const Intern&);
+		Intern & operator = (const Intern&);
+		~Intern();
 		Form* makeForm(std::string, std::string);
 };
 

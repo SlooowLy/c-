@@ -6,20 +6,30 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:38:38 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:06:28 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:55:24 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target_)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target_) : name("ShrubberyCreationForm"), grade_to_execute(137), grade_to_signe(145)
 {
 	std::cout << "Default constructor called for ShrubberyCreationForm class\n";
 	target = target_;
-	name = "ShrubberyCreationForm";
-	grade_to_execute = 137;
-	grade_to_signe = 145;
 	signe = 0;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : name("ShrubberyCreationForm"), grade_to_execute(137), grade_to_signe(145) {
+	std::cout << "Copy constructor called for ShrubberyCreationForm class\n";
+	target = copy.target;
+	signe = copy.signe;
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& copy) {
+	std::cout << "Copy assignement operator called for ShrubberyCreationForm class\n";
+	signe = copy.signe;
+	target = copy.target;
+	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

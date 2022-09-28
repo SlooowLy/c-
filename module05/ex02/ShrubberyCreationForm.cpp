@@ -6,20 +6,30 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:38:38 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:06:28 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:51:21 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target_)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target_) : name("ShrubberyCreationForm"), grade_to_execute(137), grade_to_signe(145)
 {
 	std::cout << "Default constructor called for ShrubberyCreationForm class\n";
 	target = target_;
-	name = "ShrubberyCreationForm";
-	grade_to_execute = 137;
-	grade_to_signe = 145;
 	signe = 0;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : name("ShrubberyCreationForm"), grade_to_execute(137), grade_to_signe(145) {
+	std::cout << "Copy constructor called for ShrubberyCreationForm class\n";
+	target = copy.target;
+	signe = copy.signe;
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& copy) {
+	std::cout << "Copy assignement operator called for ShrubberyCreationForm class\n";
+	signe = copy.signe;
+	target = copy.target;
+	return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -35,8 +45,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		std::ofstream	os(target + "_shrubbery");
 		if (!os.is_open())
 			std::cout << "couldn't open the file " << target + "_shrubbery" << std::endl;
-		os << "            .        +          .      .          .\n     .            _        .                    .\n  ,              /;-._,-.____        ,-----.__\n ((        .    (_:#::_.:::. `-._   /:, /-._, `._,\n  `                 |   _|`*=:_::.`.);  | __/ /\n                      ,    `./  |:. `.   )==-  .\n    .      ., ,-=-.  ,|, +#./`   |:.  / /           .\n.           |/:/`-- , ,| -` ` `   ): , /_  -o\n       .    /:+- - + +- : :- + + -:-  /(o-) |)     .\n  .      ,=-:  |    ` `/` - , , ,:- `---*.--*---._/`7\n   `.   (    |: |,-._` ` + -|, ,*   _,--._,---*:.__/\n              |:  `  X` _| _,|/-   .--\n.               *:._:`|____  /:-  /      .           .\n                    |::.  :|/:-  /              +\n   .                 `.:.  /:-  }      .\n           .           ):_(:;   |           .\n                      /:. _/ ,  |\n                   . (|::.     ,`                  .\n     .                |::.    {|\n                      |::.|  | `.\n                      |:::(|    |\n              O       |:::/{ }  |                  (o\n               )  ___/#|::`/ (O *==._____   O, (O  /`\n          ---w/w-*--,|` `:/,-(-`*--------*-o-|-/-w|/-\n	   -----------------------||W------------||/--";
-		os.close();
+		else {
+			os << "            .        +          .      .          .\n     .            _        .                    .\n  ,              /;-._,-.____        ,-----.__\n ((        .    (_:#::_.:::. `-._   /:, /-._, `._,\n  `                 |   _|`*=:_::.`.);  | __/ /\n                      ,    `./  |:. `.   )==-  .\n    .      ., ,-=-.  ,|, +#./`   |:.  / /           .\n.           |/:/`-- , ,| -` ` `   ): , /_  -o\n       .    /:+- - + +- : :- + + -:-  /(o-) |)     .\n  .      ,=-:  |    ` `/` - , , ,:- `---*.--*---._/`7\n   `.   (    |: |,-._` ` + -|, ,*   _,--._,---*:.__/\n              |:  `  X` _| _,|/-   .--\n.               *:._:`|____  /:-  /      .           .\n                    |::.  :|/:-  /              +\n   .                 `.:.  /:-  }      .\n           .           ):_(:;   |           .\n                      /:. _/ ,  |\n                   . (|::.     ,`                  .\n     .                |::.    {|\n                      |::.|  | `.\n                      |:::(|    |\n              O       |:::/{ }  |                  (o\n               )  ___/#|::`/ (O *==._____   O, (O  /`\n          ---w/w-*--,|` `:/,-(-`*--------*-o-|-/-w|/-\n	   -----------------------||W------------||/--";
+			os.close();
+		}
 	}
 	else
 		throw Bureaucrat_grade_low(); 

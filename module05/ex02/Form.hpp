@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:07:22 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:01:18 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:56:15 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Bureaucrat;
 class Form {
 	const std::string name;
 	bool		signed_;
-	int			grade_req_signe;
 	const int	grade_req_execute;
+	const int	grade_req_signe;
 	public :
 		Form();
 		Form(std::string, int, int); //name, grade_req_signe, grade_req_execute
@@ -43,7 +43,7 @@ class Form {
 		virtual int			getGrade_req_execute() const;
 		virtual void		beSigned(Bureaucrat*);
 		virtual	void		setSigne(bool);
-		~Form(void);
+		virtual ~Form(void);
 		class GradeTooLowException : public std::exception {
 			virtual const char * what () const throw();
 		};

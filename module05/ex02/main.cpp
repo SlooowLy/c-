@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:39:41 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/21 14:12:52 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:30:29 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main()
 		Bureaucrat tsuki("tsuki", 1);
 		RobotomyRequestForm test("tsuki");
 		tsuki.signForm(&test);
+		tsuki.executeForm(test);
 		test.execute(tsuki);
 	}
 	catch(std::exception& e)

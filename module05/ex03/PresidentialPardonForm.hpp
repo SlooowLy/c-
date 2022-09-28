@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:52:48 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:00:15 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:53:32 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 # include "Form.hpp"
 
 class PresidentialPardonForm : public Form {
-	std::string name;
+	const std::string name;
 	std::string target;
-	int grade_to_signe;	
-	int grade_to_execute;
+	const int grade_to_execute;
+	const int grade_to_signe;	
 	bool	signe;
 	public :
 		PresidentialPardonForm(std::string);
+		PresidentialPardonForm(const PresidentialPardonForm&);
+		PresidentialPardonForm & operator = (const PresidentialPardonForm&);
 		~PresidentialPardonForm();
 		virtual std::string getName() const;
 		virtual bool		getSigne() const;

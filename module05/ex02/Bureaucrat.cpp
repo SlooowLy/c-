@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:39:08 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:16:21 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:30:03 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,16 @@ const char *Bureaucrat::GradeTooLowException::what () const _NOEXCEPT {
 
 const char *Bureaucrat::GradeTooHighException::what () const _NOEXCEPT {
 	return "The grade you chosed is too high\n";
+}
+
+void	Bureaucrat::executeForm(Form const & form) {
+	if (!form.getSigne())
+		std::cout << "The form you are trying to execute are not signed!\n";
+	else if (grade <= form.getGrade_req_execute()) {
+		form.execute(*this);
+	}
+	else {
+		std::cout << "The bureaucrat " << name << " can't signe the form "
+				  << form.getName() << " because his grade is low!\n";
+	}
 }

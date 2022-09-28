@@ -6,20 +6,30 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 15:51:11 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/20 20:06:49 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/09/28 11:54:47 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target_)
+RobotomyRequestForm::RobotomyRequestForm(std::string target_) :  name("RobotomyRequestForm"), grade_to_execute(45), grade_to_signe(72)
 {
 	std::cout << "Default constructor called for RobotomyRequestForm class\n";
 	target = target_;
-	name = "RobotomyRequestForm";
-	grade_to_execute = 45;
-	grade_to_signe = 72;
 	signe = 0;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& copy) : name("RobotomyRequestForm"), grade_to_execute(45), grade_to_signe(72) {
+	std::cout << "Copy constructor called for RobotomyRequestForm class\n";
+	target = copy.target;
+	signe = copy.signe;
+}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& copy) {
+	std::cout << "Copy assignement operator called for RobotomyRequestForm class\n";
+	signe = copy.signe;
+	target = copy.target;
+	return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
