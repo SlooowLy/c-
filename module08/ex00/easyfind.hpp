@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 01:55:04 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/29 08:14:51 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/09/29 08:58:23 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/10/12 19:34:35 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
 # include <iostream>
-# include <string>
-
-// class Awesome;
-
-template <typename T>
-void    swap(T &x, T &y) {
-    T tmp;
-
-    tmp = x;
-    x = y;
-    y = tmp;
-}
+# include <iterator>
+# include <vector>
 
 template <typename T>
-T min(T x, T y) {
-    if (x < y)
-        return x;
-    return y;
+int	easyfind(T arr, int sec) {
+	int size = distance(arr.begin(), arr.end());
+	T	iter;
+	// std::cout << size << std::endl;
+	
+	// typename iter
+	// iter ptr;
+	for (int i = 0; i != size; i++) {
+		if (arr[i] == sec)
+			return i;
+	}
+	return -1;
 }
 
-template <typename T>
-T max(T x, T y) {
-    if (x > y)
-        return x;
-    return y;
-}
-
-# endif
+#endif
