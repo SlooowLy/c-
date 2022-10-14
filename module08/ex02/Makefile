@@ -6,11 +6,11 @@
 #    By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 16:09:20 by aaitoual          #+#    #+#              #
-#    Updated: 2022/10/13 11:12:13 by aaitoual         ###   ########.fr        #
+#    Updated: 2022/10/14 16:07:47 by aaitoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easyfind
+NAME = MutantStack
 
 CC = c++
 
@@ -20,7 +20,7 @@ SRC =  main.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
-%.o : %.cpp easyfind.hpp
+%.o : %.cpp MutantStack.hpp
 	@$(CC) $(CFLAGS) -o $@ -c $<
 all : $(NAME)
 

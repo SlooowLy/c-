@@ -5,31 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 15:16:58 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/14 16:15:40 by aaitoual         ###   ########.fr       */
+/*   Created: 2022/10/13 10:43:01 by aaitoual          #+#    #+#             */
+/*   Updated: 2022/10/14 14:10:31 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Span.hpp"
 
-int main()
-{
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanA bob("Bob", club);
-        bob.attack();
-        club.setType("some other type of club");
-        bob.attack();
-    }
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanB jim("Jim");
-        jim.setWeapon(club);
-        jim.attack();
-        club.setType("some other type of club");
-        jim.attack();
-    }
-    return 0;
+int main() {
+	Span    sp(100000);
+	
+	try {
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		// for (int i = 0; i != 10000; i++) {
+		// 	sp.addNumber(i);
+		// }
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what();
+	}
+	return 0;
 }
