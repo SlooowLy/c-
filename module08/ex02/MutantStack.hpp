@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:14:38 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/16 14:53:42 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/16 20:44:00 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,28 @@
 # include <algorithm>
 # include <vector>
 
-template<typename T>
-class   MutantStack : public std::stack<T> {
-	typedef typename std::stack<T>::container_type::iterator iterator;
+// template<typename T >
+template<typename T, class C = std::deque<T> >
+class   MutantStack : public std::stack<T, C>{
 	public :
-		iterator begin() {return this->c.begin();};
-		iterator end() {return this->c.end();};
+		typedef typename std::stack<T, C>::container_type::iterator iterator;
+		iterator begin() {
+			return this->c.begin();
+		}
+		iterator end() {
+			return this->c.end();
+		}
+		MutantStack () {
+			std::cout << "Default constructor called for MutantStack class\n";
+		}
+		MutantStack (const MutantStack &copy) {
+			std::cout << "Copy constructor called for MutantStack class"; this->c = copy->c;
+		}
+		MutantStack& operator = (const MutantStack &copy) {
+			std::cout << "Copy assignement operator called for MutantStack class\n";
+			this->c = copy->c;
+			return *this;
+		}
 };
 
 #endif
