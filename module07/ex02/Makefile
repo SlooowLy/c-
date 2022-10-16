@@ -6,11 +6,11 @@
 #    By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 16:09:20 by aaitoual          #+#    #+#              #
-#    Updated: 2022/09/26 12:18:50 by aaitoual         ###   ########.fr        #
+#    Updated: 2022/10/16 15:11:59 by aaitoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = array
 
 CC = c++
 

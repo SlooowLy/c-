@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:14:11 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/14 17:51:55 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:53:55 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int main()
     std::cout << mstack.size() << std::endl;
     //[...]
     mstack.push(0);
-    // MutantStack<int>::iterator it;
+    std::cout << *mstack.begin() << std::endl;
+    std::cout << *mstack.end() << std::endl;
+    MutantStack<int>::iterator it;
     // MutantStack<int>::iterator ite = mstack.end();
     // ++it;
     // --it;

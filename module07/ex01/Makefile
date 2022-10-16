@@ -6,11 +6,11 @@
 #    By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 16:09:20 by aaitoual          #+#    #+#              #
-#    Updated: 2022/09/26 04:46:35 by aaitoual         ###   ########.fr        #
+#    Updated: 2022/10/16 15:05:08 by aaitoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = templats
+NAME = iter
 
 CC = c++
 

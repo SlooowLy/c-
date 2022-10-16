@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 03:57:34 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/26 08:39:23 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:07:31 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ void iter(X *arr, int size, void (*function) (X)) {
 	for (int i = 0; i < size; i++) {
 		function (arr[i]);
 	}
-	(void) arr;
 }
 
-// template<typename Y>
-void	print(char x) {
+template<typename Y>
+void	print(Y x) {
 	std::cout << x << std::endl;
 }
 

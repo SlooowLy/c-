@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 01:55:04 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/09/29 08:14:51 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:56:48 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include <string>
-
-// class Awesome;
 
 template <typename T>
 void    swap(T &x, T &y) {
