@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:43:51 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/17 18:53:30 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/17 23:07:53 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Span {
 		Span & operator = (const Span &);
 		~Span();
 		void	addNumber(int);
+		template<typename T>
+		void	addNumber(T, T);
 		long	shortestSpan(void);
 		long	longestSpan(void);
 		class	over_writing : public std::exception {
@@ -40,5 +42,14 @@ class Span {
 			virtual	const char * what() const _NOEXCEPT;
 		};
 };
+template<typename T>
+void	Span::addNumber(T first, T last) {
+	if (N < std::distance(first, last))
+		throw over_writing();
+	while (first != last) {
+		span.push_back(*first);
+		first++;
+	}
+}
 
 #endif
