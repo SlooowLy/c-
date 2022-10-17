@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:02:17 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/14 14:11:44 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:54:01 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ Span::Span(int N_) : N(N_) {
 	std::cout << "Constructor called for Span class\n";
 }
 
-Span::Span(const Span &copy) : N(copy.N) {
+Span::Span(const Span &copy) {
 	std::cout << "Copy constructor called for Span class\n";
 	*this = copy;
 }
 
 Span & Span::operator= (const Span &copy) {
 	std::cout << "Copy assignement operator called for Span class\n";
+	N = copy.N;
 	for (size_t i = 0; i != copy.span.size(); i++) {
 		span.push_back(copy.span[i]);
 	}

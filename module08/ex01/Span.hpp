@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:43:51 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/14 13:06:58 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:53:30 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Span {
 	private :
 		std::vector<int>	span;
-		const unsigned int	N;
+		unsigned int	N;
 	public :
 		Span();
 		Span(int);

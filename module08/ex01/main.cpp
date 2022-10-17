@@ -6,14 +6,14 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:43:01 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/14 14:10:31 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/17 18:56:03 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 int main() {
-	Span    sp(100000);
+	Span    sp(5);
 	
 	try {
 		sp.addNumber(6);

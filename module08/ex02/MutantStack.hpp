@@ -6,7 +6,7 @@
 /*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:14:38 by aaitoual          #+#    #+#             */
-/*   Updated: 2022/10/16 20:44:00 by aaitoual         ###   ########.fr       */
+/*   Updated: 2022/10/16 21:43:14 by aaitoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <algorithm>
 # include <vector>
 
-// template<typename T >
 template<typename T, class C = std::deque<T> >
 class   MutantStack : public std::stack<T, C>{
 	public :
