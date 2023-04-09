@@ -1,61 +1,66 @@
 # include <string>
 # include <iostream>
-# include <vector>
+# include <stack>
 # include <sstream>
 
-bool	separate_content(std::vector<std::string> &vec, std::string &str) {
-	std::string tmp;
+std::string	top_pop(std::stack<std::string> &vec) {
+	std::string ret = vec.top();
+	vec.pop();
+	return ret;
+}
 
+bool	separate_content(std::stack<std::string> &tmp_vec, std::string &str) {
+	std::string tmp;
+	std::stack<std::string> vec;
 	for (size_t i = 0, j = 0; i != str.length() && j < str.length(); i++) {
 		tmp = str.substr(j, str.find(' ', j) + 1 - j);
 		if (tmp.size() > 2)
 			return 0;
 		j += tmp.size();
 		tmp.erase(1);
-		vec.push_back(tmp);
+		if (tmp[0] != ' ')
+			vec.push(tmp);
 	}
+	while (vec.size())
+		tmp_vec.push(top_pop(vec));
 	return 1;
 }
 
-bool	get_resault(std::vector<std::string> &vec, int &resault) {
+bool	get_resault(std::stack<std::string> &vec, int &resault) {
 	int tmp1, tmp2;
 	std::stringstream ss;
+	std::stack<std::string> res;
+	std::string				signe;
 
-	for (size_t i = 0; i != vec.size(); i++) {
-		if (vec[i] == "+" || vec[i] == "-" || vec[i] == "/" || vec[i] == "*") {
-			if (i < 2)
-				return 0;
-			std::istringstream(vec[i - 2]) >> tmp1;
-			std::istringstream(vec[i - 1]) >> tmp2;
-			if (vec[i] == "+") {
-				// vec[i - 2] = std::to_string(tmp1 + tmp2);
+	while (vec.size()) {
+		if (vec.top() == "+" || vec.top() == "-" || vec.top() == "/" || vec.top() == "*") {
+			signe = top_pop(vec);
+			std::istringstream(top_pop(res)) >> tmp2;
+			std::istringstream(top_pop(res)) >> tmp1;
+			if (signe == "+") {
 				ss << (tmp1 + tmp2);
-				vec[i - 2] = ss.str();
+				res.push(ss.str());
 			}		
-			else if (vec[i] == "-") {
-				// vec[i - 2] = std::to_string(tmp1 - tmp2);
+			else if (signe == "-") {
 				ss << (tmp1 - tmp2);
-				vec[i - 2] = ss.str();
+				res.push(ss.str());
 			}
-			else if (vec[i] == "*") {
-				// vec[i - 2] = std::to_string(tmp1 * tmp2);
+			else if (signe == "*") {
 				ss << (tmp1 * tmp2);
-				vec[i - 2] = ss.str();
-				// std::cout << "vec : " << vec[i - 2] << " num 1 : " << tmp1 << " num2 : " << tmp2 <<std::endl;
+				res.push(ss.str());
 			}
-			else if (vec[i] == "/") {
-				// vec[i - 2] = std::to_string(tmp1 + tmp2);
+			else if (signe == "/") {
 				ss << (tmp1 / tmp2);
-				vec[i - 2] = ss.str();
+				res.push(ss.str());
 			}
-			vec.erase(vec.begin() + (i - 1), vec.begin() + i + 1);
-			i -= 2;
 			ss.str("");
 		}
+		else
+			res.push(top_pop(vec));
 	}
-	if (vec.size() > 1)
+	if (res.size() > 2 || !res.size())
 		return 0;
-	std::istringstream(vec[0]) >> resault;
+	std::istringstream(res.top()) >> resault;
 	return 1;
 }
 
@@ -65,7 +70,7 @@ int main (int ac, char **av) {
 		return 1;
 	}
 	std::string					str =	av[1];
-	std::vector<std::string>	vec;
+	std::stack<std::string>		vec;
 	int							resault;
 
 	if (str.find_first_not_of("1234567890 +-/*") != str.npos) {
