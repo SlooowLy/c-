@@ -76,6 +76,7 @@
         "numbers": "cpp",
         "cinttypes": "cpp",
         "map": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "__tree": "cpp"
     }
 }

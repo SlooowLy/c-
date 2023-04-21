@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/18 01:18:44 by aaitoual          #+#    #+#             */
+/*   Updated: 2023/04/21 20:20:52 by aaitoual         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include <string>
 # include <iostream>
 # include <stack>
@@ -12,12 +24,18 @@ std::string	top_pop(std::stack<std::string> &vec) {
 bool	separate_content(std::stack<std::string> &tmp_vec, std::string &str) {
 	std::string tmp;
 	std::stack<std::string> vec;
-	for (size_t i = 0, j = 0; i != str.length() && j < str.length(); i++) {
-		tmp = str.substr(j, str.find(' ', j) + 1 - j);
+	for (size_t j = 0; j < str.length();) {
+		if (str.find(' ', j) != str.npos)
+			tmp = str.substr(j, str.find(' ', j) + 1 - j);
+		else
+			tmp = str.substr(j, str.find(' ', j));
 		if (tmp.size() > 2)
 			return 0;
 		j += tmp.size();
-		tmp.erase(1);
+		if (tmp.size() > 1 && tmp[1] == ' ')
+			tmp.erase(1);
+		else if (tmp.size() > 1)
+			return 1;
 		if (tmp[0] != ' ')
 			vec.push(tmp);
 	}
@@ -34,6 +52,8 @@ bool	get_resault(std::stack<std::string> &vec, int &resault) {
 
 	while (vec.size()) {
 		if (vec.top() == "+" || vec.top() == "-" || vec.top() == "/" || vec.top() == "*") {
+			if (res.size() < 2)
+				return 0;
 			signe = top_pop(vec);
 			std::istringstream(top_pop(res)) >> tmp2;
 			std::istringstream(top_pop(res)) >> tmp1;
@@ -50,6 +70,8 @@ bool	get_resault(std::stack<std::string> &vec, int &resault) {
 				res.push(ss.str());
 			}
 			else if (signe == "/") {
+				if (tmp2 == 0)
+					return 0;
 				ss << (tmp1 / tmp2);
 				res.push(ss.str());
 			}
@@ -58,7 +80,7 @@ bool	get_resault(std::stack<std::string> &vec, int &resault) {
 		else
 			res.push(top_pop(vec));
 	}
-	if (res.size() > 2 || !res.size())
+	if (res.size() != 1)
 		return 0;
 	std::istringstream(res.top()) >> resault;
 	return 1;

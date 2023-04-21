@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/18 02:21:52 by aaitoual          #+#    #+#             */
+/*   Updated: 2023/04/18 02:21:53 by aaitoual         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include <vector>
 # include <string>
 # include <iostream>
@@ -61,26 +73,27 @@ template<class T> void	merge_sort(T nums, int case_) {
 
 int main(int ac, char **av) {
 	std::vector <int>	number;
+	std::deque <int>	numbers;
 	int					tmp = -1;
+	std::string			str;
+
 	if (ac == 1) {
 		std::cout << "Error!\n";
 		return 1;
 	}
-	for (size_t i = 1; i != ac; i++) {
+	for (int i = 1; i != ac; i++) {
+		str.append(av[i]);
+	}
+	if (str.find_first_not_of("0123456789") != str.npos) {
+		std::cout << "Error!\n";
+		return 1;
+	}
+	for (int i = 1; i != ac; i++) {
 		std::istringstream(av[i]) >> tmp;
-		if (tmp < 0) {
-			std::cout << "error!\n";
-			return 1;
-		}
 		number.push_back(tmp);
 	}
 	merge_sort(number, 1);
-	std::deque <int>	numbers;
-	if (ac == 1) {
-		std::cout << "Error!\n";
-		return 1;
-	}
-	for (size_t i = 1; i != ac; i++) {
+	for (int i = 1; i != ac; i++) {
 		std::istringstream(av[i]) >> tmp;
 		if (tmp < 0) {
 			std::cout << "error!\n";

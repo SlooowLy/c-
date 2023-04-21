@@ -6,7 +6,7 @@
 #    By: aaitoual <aaitoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 16:09:20 by aaitoual          #+#    #+#              #
-#    Updated: 2022/10/13 11:12:13 by aaitoual         ###   ########.fr        #
+#    Updated: 2023/04/15 21:17:33 by aaitoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =  main.cpp btc.cpp\
+SRC =  main.cpp BitcoinExchange.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
-%.o : %.cpp btc.hpp
+%.o : %.cpp BitcoinExchange.hpp
 	@$(CC) $(CFLAGS) -o $@ -c $<
 all : $(NAME)
 
